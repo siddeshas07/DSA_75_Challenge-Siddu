@@ -1,0 +1,104 @@
+977. Squares of a Sorted Array
+
+
+Example 1:
+
+Input: nums = [-4,-1,0,3,10]
+Output: [0,1,9,16,100]
+Explanation: After squaring, the array becomes [16,1,0,9,100].
+After sorting, it becomes [0,1,9,16,100].
+Example 2:
+
+Input: nums = [-7,-3,2,3,11]
+Output: [4,9,9,49,121]
+
+
+class Solution {
+    public int[] sortedSquares(int[] nums) {
+        
+        int n =nums.length ;
+        int result [] = new int [n];
+        int  beg  = 0  ;
+       int  last = n-1;
+        int i= n-1;
+        
+        
+        while(i>=0)
+            
+        {
+            
+            if(nums[beg] * nums[beg]  >= nums[last] *nums[last])
+            {
+                result[i--] = nums[beg] * nums[beg];
+                    beg++;
+            }
+            else 
+            {
+                result[i--] =  nums[last] *nums[last];
+                last --;
+            }
+        }
+        return  result;
+    }
+}
+
+
+
+
+
+explaint : using two pointer approch
+
+=========================================
+122. Best Time to Buy and Sell Stock II
+
+You are given an integer array prices where prices[i] is the price of a given stock on the ith day.
+
+On each day, you may decide to buy and/or sell the stock. You can only hold at most one share of the stock at any time. However, you can buy it then immediately sell it on the same day.
+
+Find and return the maximum profit you can achieve.
+
+
+
+
+
+Input: prices = [7,1,5,3,6,4]
+Output: 7
+Explanation: Buy on day 2 (price = 1) and sell on day 3 (price = 5), profit = 5-1 = 4.
+Then buy on day 4 (price = 3) and sell on day 5 (price = 6), profit = 6-3 = 3.
+Total profit is 4 + 3 = 7.
+
+
+class Solution {
+    public int maxProfit(int[] price) {
+        
+        
+        
+        int n =price.length;
+        int profit =0;
+        
+        for (int i=0 ;i<n-1; i++ )
+        {
+            
+            if(price[i]<price[i+1])
+                
+            {
+                
+                profit += price[i+1]-price[i];
+                
+            }
+        }
+        return profit;
+    }
+}
+
+https://www.youtube.com/watch?v=Q7v239y-Tik&ab_channel=AnujBhaiya
+
+
+idea : 
+
+compare the local minum and local max 
+or 
+
+i <i+1
+then buy it
+
