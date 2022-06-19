@@ -1,0 +1,124 @@
+217. Contains Duplicate
+
+Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
+
+Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
+
+
+
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+      int t = 0 ;
+        
+        for (int i=0 ; i < nums.length ; i++)
+        {
+              for (int z=i+1 ; z<nums.length ; z++)
+              {
+                  if (nums[i] == nums[z])
+                     return true ;
+              }
+        }
+           return false ;
+    }
+ 
+    
+}
+
+
+
+burth force sloution 
+
+
+using the hasset we cna optimize 
+
+   HashSet<String> set=new HashSet(); 
+   
+   
+   class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        
+        
+         HashSet<Integer> numbers  =new HashSet(); 
+    
+        
+        for (int num : nums)
+        {
+            if(numbers.contains(num))
+                return true ;
+            numbers.add(num);
+                 
+        }
+        
+        return false ;
+         
+        
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+===========================================================================
+
+242. Valid Anagram 
+
+242. Valid Anagram
+Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+
+An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+
+
+
+
+
+
+
+
+
+
+
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        
+        
+          if(s.length() != t.length()) return false;
+        
+ 
+        char[] str1 = s.toCharArray();
+        char[] str2 = t.toCharArray();
+        Arrays.sort(str1);
+        Arrays.sort(str2);
+        for(int i=0; i<str1.length; i++) {
+            if(str1[i] != str2[i])
+                return false;
+        }
+        return true;
+        
+        
+        
+        
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
